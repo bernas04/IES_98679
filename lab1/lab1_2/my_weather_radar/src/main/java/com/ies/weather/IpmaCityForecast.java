@@ -1,4 +1,4 @@
-package weather.ipma_client;
+package com.ies.weather;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

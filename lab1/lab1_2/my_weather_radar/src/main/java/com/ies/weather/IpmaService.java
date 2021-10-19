@@ -1,4 +1,5 @@
-package weather.ipma_client;
+package com.ies.weather;
+
 
 
 import retrofit2.Call;
