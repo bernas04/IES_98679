@@ -24,7 +24,7 @@ public class WeatherStarter {
 
     public static void  main(String[] args ) {
         
-        if (args.length>1)
+        if (args.length>0)
             city_code=Integer.parseInt(args[0]);
         /*
         get a retrofit instance, loaded with the GSon lib to convert JSON into objects
