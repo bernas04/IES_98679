@@ -17,7 +17,7 @@
 No ficheiro *pom.xml* é possível adicionar informação extra acerca.
 
 
-```mvn exec:Java -exec:mainClass="----" -D exec:cleanupDaemonThreads=false```
+```mvn exec:java -Dexec.mainClass="main_class_here"```
 
 
 ### Compilar e executar o projeto *maven*
