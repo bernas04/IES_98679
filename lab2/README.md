@@ -33,3 +33,27 @@ Para compilar, e ao contrário dos outros projetos Maven, o comando a utilizar �
 ```$ mvn install```
 
 O ficheiro *.war* criado é necessário que seja depois colocado na diretoria ***home/joao/apache-tomcat-9.0.54/webapps*** 
+
+
+O *servlet* adicionado, permite imprimir uma mensagem personalizada, através do *username* passado no endereço *http*. Assim, neste caso, ao aceder ao endereço:
+```http://localhost:8080/tomcat_webapp-1.1/app?username=joao``` é impressa uma mensagem personalizada.
+
+Caso não seja passado nenhum utilizador, uma mensagem *Internal Server Error* é mostrada, com uma mensagem personalizada.
+
+
+
+## Exercício 2.2
+Para correr o projeto usando *web container* de dentro da aplicação, é neceessário adicionar as seguintes dependências no ***pom.xml***
+```
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-server</artifactId>
+    <version>9.2.15.v20160210</version>
+</dependency>
+<dependency>
+    <groupId>org.eclipse.jetty</groupId>
+    <artifactId>jetty-servlet</artifactId>
+    <version>9.2.15.v20160210</version>
+</dependency>
+
+```

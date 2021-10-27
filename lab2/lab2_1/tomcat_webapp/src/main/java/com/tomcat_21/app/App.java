@@ -1,10 +1,8 @@
-package main.java.com.tomcat_21.app;
+package com.tomcat_21.app;
 
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,32 +20,29 @@ public class App extends HttpServlet {
             HttpServletResponse response) throws ServletException, IOException 
     {
          
-        Map<String,String> data = getData();
-         
+        String user = request.getParameter("username");         
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try {
-            // Write some content
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>app</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h2>Hello " + data.get("username") + ", " + data.get("message") + "</h2>");
-            out.println("<h2>The time right now is : " + new Date() + "</h2>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        
+        if (user == null){
+            throw new NullPointerException("There is no username");
         }
-    }
-     
-    //This method will access some external system as database to get user name, and his personalized message
-    private Map<String, String> getData() 
-    {
-        Map<String, String> data = new HashMap<String, String>();
-        data.put("username", "Guest");
-        data.put("message",  "Welcome to my world !!");
-        return data;
+        else{
+            try {
+                // Write some content
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>app</title>");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h2>Hello " + user + "</h2>");
+                out.println("<h2>The time right now is : " + new Date() + "</h2>");
+                out.println("<img src=https://upload.wikimedia.org/wikipedia/en/thumb/f/f1/FC_Porto.svg/1200px-FC_Porto.svg.png>");
+                out.println("</body>");
+                out.println("</html>");
+            } finally {
+                out.close();
+            }
+        }
     }
 }
