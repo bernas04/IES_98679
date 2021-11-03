@@ -81,7 +81,7 @@ Apenas ter em atenção criar as classes necessárias, e criar os arrays que vã
 
 
 ## Questões finais
-### alínea a)
+### **What are the responsibilities/services of a “servlet container”?**
 The servlet container provides the servlet easy access to properties of the HTTP request, such as its headers and parameters.
 A servlet container performs the following tasks:
 1) It creates an instance of the servlet and calls its init() method to initialize it
@@ -93,15 +93,29 @@ A servlet container performs the following tasks:
 4) It invokes the servlet service() method.
 5) It calls the destroy() method of the servlet to discard it.
 
-### alínea b)
-**Model** - The central component of the pattern. It is the application's dynamic data structure, independent of the user interface. It directly manages the data, logic and rules of the application.
+### **Explain, in brief, the “dynamics” of Model-View-Controller approach used in Spring Boot to serve web content. (You may exemplify with the context of the previous exercises.)**
+Spring Boot uses the *Model-View-Controller* pattern in which application is divided in 3 parts:
+1) When an HTTP request is made, the **Controller** receives and processes it.
+2) The **Model** works as a middleware between the Controller and the View. This is being controlled by the Controller to update the View. The user is able to see the processed request through the **View**
+3) The '@Controller' function handles the requests.
 
-**View** - Any representation of information such as a chart, diagram or table. Multiple views of the same information are possible.
+### **Inspect the POM.xml for the previous SpringBoot projects. What is the role of the “starters” dependencies?**
+The starters allow us to add jars in the classpath, this makes a much easier and rapid development.    
 
-**Controller** - Accepts input and converts it to commands for the model or view.
+### **Which annotations are transitively included in the @SpringBootApplication?**
+* **@EnableAutoConfiguration**: enable Spring Boot's autoconfiguration mechanisms;
+* **@ComponentScan**: enable @ComponentScan on the package where the application is located;
+* **@Configuration**: allow to register extra beans in the context or import additional configuration classes.
 
-In addition to dividing the application into these components, the model–view–controller design defines the interactions between them.
+### **Search online for the topic “Best practices for REST APIdesign”. From what you could learn, select your “top 5”practices,and briefly explain them in you own words.**
 
-* The model is responsible for managing the data of the application. It receives user input from the controller.
-* The view renders presentation of the model in a particular format.
-* The controller responds to the user input and performs interactions on the data model objects. The controller receives the input, optionally validates it and then passes the input to the model.
+1) **Accept and respond with JSON** - Rest Api's should accept and send responses in JSON format. Almost every networked technology uses built-in methods to handle with JSON, what simplifies all work.
+
+2) **Cache data to improve performance** - In order to get data faster, caching is a good solution. Using this method it isn't necessary to query database everytime we need information. However, the data that users get may be outdated.
+
+3) **Maintain good security practices** - For exemple, to save passwords, thet should be encrypted.
+
+4) **Allow filtering, sorting, and pagination** - Sometimes, there is too much data that shouldn't be returned all at once beecause it can slow or bring the system down. Filtering and pagination both increase performance by reducing the usage of server resources.
+
+5) **Use Status Codes in Error Handling** - Use regular HTTP status codes in responses to requests made. This will help users to know what is going on – whether the request is successful, or if it fails.
+
