@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class ProductController {
+public class MovieController {
 
     @Autowired
-    private ProductQuote service;
+    private MovieService service;
 
 
     @PostMapping("/addMovie")

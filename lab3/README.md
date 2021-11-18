@@ -91,7 +91,7 @@ The `@Controller` is a specialization of `@Component` annotation while `@RestCon
 
 * **@Column** optional annotation that enables us to customize the mapping between the attribute and the database column.
 
-* **@Id** JPA requires to specify one primay key attribute for each entity. To to this, we can annotating an attribute with @Id 
+* **@Id** Java persistent API requires to specify one primay key attribute for each entity. To do this, we can annotating an attribute with **@Id**. 
 
 **d) Explain the use of the annotation @AutoWired (in the Rest Controller class).**
 The Spring framework enables automatic dependency injection. So, by declaring all the bean dependencies in a Spring configuration file, Spring container can autowire relationships between collaborating beans. This is called Spring bean autowiring

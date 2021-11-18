@@ -14,11 +14,11 @@ public class QuoteController {
     private QuoteService service;
 
     @Autowired
-    private ProductQuote service2;
+    private MovieService service2;
 
     
     @PostMapping("/addQuote")
-    public Quote newQuotes( @RequestBody newQuote m) {
+    public Quote newQuotes( @RequestBody QuoteMovie m) {
         return service.saveQuote(new Quote (m.getQuote(),service2.getMovieById(m.getShowId())));
     }
 
@@ -44,11 +44,9 @@ public class QuoteController {
             }
         }
         Random r = new Random();
-		int low = 0;
-		int high = rets.size()-1;
 		int result = r.nextInt(rets.size());
-        Quote ret = rets.get(result);
-        return ret;
+        return rets.get(result);
+        
     }
 
 
